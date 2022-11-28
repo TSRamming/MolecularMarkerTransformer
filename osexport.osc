@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OnkostarEditor>
+   <InfoXML>
+      <DatumXML>2022-11-27+01:00</DatumXML>
+      <Name>OnkoStar</Name>
+      <Version>3.0.0-SNAPSHOT</Version>
+   </InfoXML>
+   <Editor>
+      <PropertyCatalogue>
+         <Name>STUDY.Mutationen</Name>
+         <Description>STUDY.Mutationen</Description>
+         <Standard>SIMPLE</Standard>
+         <Readonly>false</Readonly>
+         <Anmerkung></Anmerkung>
+         <SID>5001</SID>
+         <GUID>0f3e1cec-a129-4cbd-b31e-03d1ed9e6063</GUID>
+         <Revision>68</Revision>
+         <Versions>
+            <Version>
+               <VersionNumber>1</VersionNumber>
+               <ValidFrom>2021-11-25+01:00</ValidFrom>
+               <OID>STUDY.Mutationen.v1</OID>
+               <Active>true</Active>
+               <Description>v1</Description>
+               <SID>5001</SID>
+               <GUID>a6c7276e-11d8-44ca-b5e5-65f331a8a8b2</GUID>
+               <Revision>68</Revision>
+               <Entries>
+                  <Entry>
+                     <Code>RET</Code>
+                     <ShortDescription>RET (Rezeptor-Tyrosinkinase)</ShortDescription>
+                     <Description>RET (Rezeptor-Tyrosinkinase)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>95.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>PIK3R1</Code>
+                     <ShortDescription>PIK3R1</ShortDescription>
+                     <Description>PIK3R1</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>82.0</Position>
+                     <ParentCode>PI3K</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>LCL161</Code>
+                     <ShortDescription>LCL161</ShortDescription>
+                     <Description>LCL161</Description>
+                     <Position>58.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>PgR+</Code>
+                     <ShortDescription>PgR+</ShortDescription>
+                     <Description>PgR+</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>79.0</Position>
+                     <ParentCode>PgR</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>PD-1</Code>
+                     <ShortDescription>PD-1 (Programmed cell death protein 1)</ShortDescription>
+                     <Description>PD-1 (Programmed cell death protein 1)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>75.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>SLAMF7</Code>
+                     <ShortDescription>SLAMF7</ShortDescription>
+                     <Description>SLAMF7</Description>
+                     <Position>98.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MSI-L</Code>
+                     <ShortDescription>MSI-L</ShortDescription>
+                     <Description>MSI-L</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>69.0</Position>
+                     <ParentCode>MSI</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>MEK</Code>
+                     <ShortDescription>MEK (MEK-Inhibitoren)</ShortDescription>
+                     <Description>MEK (MEK-Inhibitoren)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>65.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>BRCA</Code>
+                     <ShortDescription>BRCA (BReast CAncer)</ShortDescription>
+                     <Description>BRCA (BReast CAncer)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>8.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>GDF15</Code>
+                     <ShortDescription>GDF15 (Growth/differentiation factor 15)</ShortDescription>
+                     <Description>GDF15 (Growth/differentiation factor 15)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>47.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>IL-2</Code>
+                     <ShortDescription>IL-2</ShortDescription>
+                     <Description>IL-2</Description>
+                     <Position>52.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>JAK3</Code>
+                     <ShortDescription>JAK3</ShortDescription>
+                     <Description>JAK3</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>56.0</Position>
+                     <ParentCode>JAK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>BCL</Code>
+                     <ShortDescription>BCL (B-cell lymphoma)</ShortDescription>
+                     <Description>BCL (B-cell lymphoma)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>5.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>AKT3</Code>
+                     <ShortDescription>AKT3</ShortDescription>
+                     <Description>AKT3</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>3.0</Position>
+                     <ParentCode>AKT</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>MAGEA1</Code>
+                     <ShortDescription>MAGEA1</ShortDescription>
+                     <Description>MAGEA1</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>60.0</Position>
+                     <ParentCode>MAGEA</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>MAP2K</Code>
+                     <ShortDescription>MAP2K</ShortDescription>
+                     <Description>MAP2K</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>62.0</Position>
+                     <ParentCode>MAP</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>NRAS</Code>
+                     <ShortDescription>NRAS</ShortDescription>
+                     <Description>NRAS</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>94.0</Position>
+                     <ParentCode>ras-Gen</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>del</Code>
+                     <ShortDescription>del (Deletions)</ShortDescription>
+                     <Description>del (Deletions)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>31.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CDK4/6</Code>
+                     <ShortDescription>CDK 4/6</ShortDescription>
+                     <Description>CDK 4/6</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>24.0</Position>
+                     <ParentCode>CDK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>CDKN2A</Code>
+                     <ShortDescription>CDKN2A</ShortDescription>
+                     <Description>CDKN2A</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>27.0</Position>
+                     <ParentCode>CDK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>FLT3</Code>
+                     <ShortDescription>FLT3 (FMS-related tyrosine kinase 3)</ShortDescription>
+                     <Description>FLT3 (FMS-related tyrosine kinase 3)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>45.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>HDAC(Histo</Code>
+                     <ShortDescription>HDAC (Histon-Deacetylase)</ShortDescription>
+                     <Description>HDAC (Histon-Deacetylase)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>49.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>BRAFV600</Code>
+                     <ShortDescription>BRAF V600</ShortDescription>
+                     <Description>BRAF V600</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>89.0</Position>
+                     <ParentCode>BRAF</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>ALK</Code>
+                     <ShortDescription>ALK</ShortDescription>
+                     <Description>ALK</Description>
+                     <Position>4.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CDK4</Code>
+                     <ShortDescription>CDK4</ShortDescription>
+                     <Description>CDK4</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>25.0</Position>
+                     <ParentCode>CDK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>Transloka.</Code>
+                     <ShortDescription>Translokation</ShortDescription>
+                     <Description>Translokation</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>104.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CDK6</Code>
+                     <ShortDescription>CDK6</ShortDescription>
+                     <Description>CDK6</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>26.0</Position>
+                     <ParentCode>CDK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>CD19</Code>
+                     <ShortDescription>CD19</ShortDescription>
+                     <Description>CD19</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>15.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>CD123</Code>
+                     <ShortDescription>CD123</ShortDescription>
+                     <Description>CD123</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>14.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>NPM1</Code>
+                     <ShortDescription>NPM1 (Nukleophosmin-Gen1)</ShortDescription>
+                     <Description>NPM1 (Nukleophosmin-Gen1)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>73.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>ras-Gen</Code>
+                     <ShortDescription>ras-Gen</ShortDescription>
+                     <Description>ras-Gen</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>91.5</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MAP</Code>
+                     <ShortDescription>MAP (Kinase-Signalwege)</ShortDescription>
+                     <Description>MAP (Kinase-Signalwege)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>61.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>Cereblon</Code>
+                     <ShortDescription>Cereblon (E3 Ubiquitin Ligase)</ShortDescription>
+                     <Description>Cereblon (E3 Ubiquitin Ligase)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>29.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CD25</Code>
+                     <ShortDescription>CD25</ShortDescription>
+                     <Description>CD25</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>17.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>Others</Code>
+                     <ShortDescription>Others</ShortDescription>
+                     <Description>Others</Description>
+                     <Position>74.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>FGFR3</Code>
+                     <ShortDescription>FGFR3</ShortDescription>
+                     <Description>FGFR3</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>43.0</Position>
+                     <ParentCode>FGFR</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>RAS-W</Code>
+                     <ShortDescription>RAS-Wildtyp</ShortDescription>
+                     <Description>RAS-Wildtyp</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>108.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>BRCA3</Code>
+                     <ShortDescription>BRCA3</ShortDescription>
+                     <Description>BRCA3</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>11.0</Position>
+                     <ParentCode>BRCA</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>BRAF</Code>
+                     <ShortDescription>BRAF</ShortDescription>
+                     <Description>BRAF</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>88.0</Position>
+                     <ParentCode>RAF</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>AKT</Code>
+                     <ShortDescription>AKT (AKT family of proteins)</ShortDescription>
+                     <Description>AKT (AKT family of proteins)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>2.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>EGFRT790M</Code>
+                     <ShortDescription>EGFR T790M</ShortDescription>
+                     <Description>EGFR T790M</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>35.0</Position>
+                     <ParentCode>EGFR</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>FGFR1</Code>
+                     <ShortDescription>FGFR1</ShortDescription>
+                     <Description>FGFR1</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>41.0</Position>
+                     <ParentCode>FGFR</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>MYC(c-MYC)</Code>
+                     <ShortDescription>MYC (c-MYC)</ShortDescription>
+                     <Description>MYC (c-MYC)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>72.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CTLA-4</Code>
+                     <ShortDescription>CTLA-4 (cytotoxic T-lymphocyte-associated Protein 4)</ShortDescription>
+                     <Description>CTLA-4 (cytotoxic T-lymphocyte-associated Protein 4)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>30.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>PgR</Code>
+                     <ShortDescription>PgR (Progesteronrezeptor)</ShortDescription>
+                     <Description>PgR (Progesteronrezeptor)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>77.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>KRAS</Code>
+                     <ShortDescription>KRAS</ShortDescription>
+                     <Description>KRAS</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>93.0</Position>
+                     <ParentCode>ras-Gen</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>BRCA2</Code>
+                     <ShortDescription>BRCA2</ShortDescription>
+                     <Description>BRCA2</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>10.0</Position>
+                     <ParentCode>BRCA</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>JAK2</Code>
+                     <ShortDescription>JAK2</ShortDescription>
+                     <Description>JAK2</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>55.0</Position>
+                     <ParentCode>JAK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>TGF-β(1-3)</Code>
+                     <ShortDescription>TGF-β (1-3)</ShortDescription>
+                     <Description>TGF-β (1-3)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>101.0</Position>
+                     <ParentCode>TGF</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>SSTR+</Code>
+                     <ShortDescription>SSTR+ (Somatostatin-Rezeptor positiv)</ShortDescription>
+                     <Description>SSTR+ (Somatostatin-Rezeptor positiv)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>99.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CD33</Code>
+                     <ShortDescription>CD33</ShortDescription>
+                     <Description>CD33</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>19.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>CD40</Code>
+                     <ShortDescription>CD40</ShortDescription>
+                     <Description>CD40</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>20.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>BRCA1</Code>
+                     <ShortDescription>BRCA1</ShortDescription>
+                     <Description>BRCA1</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>9.0</Position>
+                     <ParentCode>BRCA</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>CD20</Code>
+                     <ShortDescription>CD20</ShortDescription>
+                     <Description>CD20</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>16.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>FGFR</Code>
+                     <ShortDescription>FGFR (Fibroblast growth factor receptor)</ShortDescription>
+                     <Description>FGFR (Fibroblast growth factor receptor)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>40.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>PI3K</Code>
+                     <ShortDescription>PI3K (Phosphoinosit-3-Kinase)</ShortDescription>
+                     <Description>PI3K (Phosphoinosit-3-Kinase)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>80.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CELMoD</Code>
+                     <ShortDescription>CELMoD (Cereblon E3 ubiquitin ligase Modulating Drug)</ShortDescription>
+                     <Description>CELMoD (Cereblon E3 ubiquitin ligase Modulating Drug)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>28.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MAP2K2</Code>
+                     <ShortDescription>MAP2K2</ShortDescription>
+                     <Description>MAP2K2</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>64.0</Position>
+                     <ParentCode>MAP2K</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>BCMA</Code>
+                     <ShortDescription>BCMA (B-Cell Maturation Antigen, TNFRSF17)</ShortDescription>
+                     <Description>BCMA (B-Cell Maturation Antigen, TNFRSF17)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>7.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>FGFR4</Code>
+                     <ShortDescription>FGFR4</ShortDescription>
+                     <Description>FGFR4</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>44.0</Position>
+                     <ParentCode>FGFR</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>HER2/neu</Code>
+                     <ShortDescription>HER2/neu</ShortDescription>
+                     <Description>HER2/neu</Description>
+                     <Position>50.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>TLR9</Code>
+                     <ShortDescription>TLR9 (Toll-Like Rezeptor 9)</ShortDescription>
+                     <Description>TLR9 (Toll-Like Rezeptor 9)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>102.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>bcr-abl</Code>
+                     <ShortDescription>bcr-abl</ShortDescription>
+                     <Description>bcr-abl</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>1.0</Position>
+                     <ParentCode>﻿ABL</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>TP53</Code>
+                     <ShortDescription>TP53</ShortDescription>
+                     <Description>TP53</Description>
+                     <Position>103.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>ABL</Code>
+                     <ShortDescription>ABL</ShortDescription>
+                     <Description>ABL</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>0.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CD3</Code>
+                     <ShortDescription>CD3</ShortDescription>
+                     <Description>CD3</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>18.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>GPRC5DxCD3</Code>
+                     <ShortDescription>GPRC5D x CD3</ShortDescription>
+                     <Description>GPRC5D x CD3</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>48.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>BRAFV600E</Code>
+                     <ShortDescription>BRAF V600E</ShortDescription>
+                     <Description>BRAF V600E</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>90.0</Position>
+                     <ParentCode>BRAFV600</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>CD79</Code>
+                     <ShortDescription>CD79</ShortDescription>
+                     <Description>CD79</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>21.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>PRAME</Code>
+                     <ShortDescription>PRAME (Nuclear Receptor Transcriptional Regulator)</ShortDescription>
+                     <Description>PRAME (Nuclear Receptor Transcriptional Regulator)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>83.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>ER</Code>
+                     <ShortDescription>ER (Östrogenrezeptor)</ShortDescription>
+                     <Description>ER (Östrogenrezeptor)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>36.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>PgR-</Code>
+                     <ShortDescription>PgR-</ShortDescription>
+                     <Description>PgR-</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>78.0</Position>
+                     <ParentCode>PgR</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>t(15;17)</Code>
+                     <ShortDescription>t(15;17)</ShortDescription>
+                     <Description>t(15;17)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>106.0</Position>
+                     <ParentCode>Transloka.</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>LAG-3</Code>
+                     <ShortDescription>LAG-3</ShortDescription>
+                     <Description>LAG-3</Description>
+                     <Position>57.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MAGEA</Code>
+                     <ShortDescription>MAGEA (Melanoma-associated Antigen)</ShortDescription>
+                     <Description>MAGEA (Melanoma-associated Antigen)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>59.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>EGFR</Code>
+                     <ShortDescription>EGFR</ShortDescription>
+                     <Description>EGFR</Description>
+                     <Position>34.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>del(17p)</Code>
+                     <ShortDescription>del(17p)</ShortDescription>
+                     <Description>del(17p)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>32.0</Position>
+                     <ParentCode>del</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>PTEN</Code>
+                     <ShortDescription>PTEN (Phosphatase and Tensin homolog)</ShortDescription>
+                     <Description>PTEN (Phosphatase and Tensin homolog)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>86.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CD</Code>
+                     <ShortDescription>CD (Cluster of Differentiation)</ShortDescription>
+                     <Description>CD (Cluster of Differentiation)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>12.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>JAK1</Code>
+                     <ShortDescription>JAK1</ShortDescription>
+                     <Description>JAK1</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>54.0</Position>
+                     <ParentCode>JAK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>PSMA</Code>
+                     <ShortDescription>PSMA (Prostataspezifisches Membranantigen)</ShortDescription>
+                     <Description>PSMA (Prostataspezifisches Membranantigen)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>85.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>PD-L1</Code>
+                     <ShortDescription>PD-L1</ShortDescription>
+                     <Description>PD-L1</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>76.0</Position>
+                     <ParentCode>PD-1</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>ROS-1</Code>
+                     <ShortDescription>ROS-1 (c-ros oncogene 1, receptor tyrosine kinase)</ShortDescription>
+                     <Description>ROS-1 (c-ros oncogene 1, receptor tyrosine kinase)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>96.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>FANC</Code>
+                     <ShortDescription>FANC (Fanconi anemia complementation group)</ShortDescription>
+                     <Description>FANC (Fanconi anemia complementation group)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>39.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MSLN</Code>
+                     <ShortDescription>MSLN (Mesothelin)</ShortDescription>
+                     <Description>MSLN (Mesothelin)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>70.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>VEGF</Code>
+                     <ShortDescription>VEGF</ShortDescription>
+                     <Description>VEGF</Description>
+                     <Position>107.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>t(11;14)</Code>
+                     <ShortDescription>t(11;14)</ShortDescription>
+                     <Description>t(11;14)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>105.0</Position>
+                     <ParentCode>Transloka.</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>RAF</Code>
+                     <ShortDescription>RAF (rapidly accelerated fibrosarcoma)</ShortDescription>
+                     <Description>RAF (rapidly accelerated fibrosarcoma)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>87.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CD79B</Code>
+                     <ShortDescription>CD79B</ShortDescription>
+                     <Description>CD79B</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>22.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>ER-</Code>
+                     <ShortDescription>ER-</ShortDescription>
+                     <Description>ER-</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>37.0</Position>
+                     <ParentCode>ER</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>ER+</Code>
+                     <ShortDescription>ER+</ShortDescription>
+                     <Description>ER+</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>38.0</Position>
+                     <ParentCode>ER</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>MAP2K1</Code>
+                     <ShortDescription>MAP2K1</ShortDescription>
+                     <Description>MAP2K1</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>63.0</Position>
+                     <ParentCode>MAP2K</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>DLL3</Code>
+                     <ShortDescription>DLL3 (Delta-like 3)</ShortDescription>
+                     <Description>DLL3 (Delta-like 3)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>33.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>FTL3D835</Code>
+                     <ShortDescription>FTL3 D835</ShortDescription>
+                     <Description>FTL3 D835</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>46.0</Position>
+                     <ParentCode>FLT3</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>CD122</Code>
+                     <ShortDescription>CD122</ShortDescription>
+                     <Description>CD122</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>13.0</Position>
+                     <ParentCode>CD</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>HLA</Code>
+                     <ShortDescription>HLA (Humane Leukozytenantigene)</ShortDescription>
+                     <Description>HLA (Humane Leukozytenantigene)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>51.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>mTOR</Code>
+                     <ShortDescription>mTOR (Mechanistic Target of Rapamycin)</ShortDescription>
+                     <Description>mTOR (Mechanistic Target of Rapamycin)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>71.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>HRAS</Code>
+                     <ShortDescription>HRAS</ShortDescription>
+                     <Description>HRAS</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>92.0</Position>
+                     <ParentCode>ras-Gen</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>JAK</Code>
+                     <ShortDescription>JAK (Januskinase)</ShortDescription>
+                     <Description>JAK (Januskinase)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>53.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MEK1/2</Code>
+                     <ShortDescription>MEK1/2</ShortDescription>
+                     <Description>MEK1/2</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>66.0</Position>
+                     <ParentCode>MEK</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>TGF</Code>
+                     <ShortDescription>TGF (Transforming growth factor)</ShortDescription>
+                     <Description>TGF (Transforming growth factor)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>100.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>CDK</Code>
+                     <ShortDescription>CDK (Cyclin-Dependent Kinase)</ShortDescription>
+                     <Description>CDK (Cyclin-Dependent Kinase)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>23.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MSI</Code>
+                     <ShortDescription>MSI (Mikrosatelitteninstabilität)</ShortDescription>
+                     <Description>MSI (Mikrosatelitteninstabilität)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>67.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>FGFR2</Code>
+                     <ShortDescription>FGFR2</ShortDescription>
+                     <Description>FGFR2</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>42.0</Position>
+                     <ParentCode>FGFR</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>PIK3CA</Code>
+                     <ShortDescription>PIK3CA</ShortDescription>
+                     <Description>PIK3CA</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>81.0</Position>
+                     <ParentCode>PI3K</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>PSCA</Code>
+                     <ShortDescription>PSCA (Prostate stem cell antigen)</ShortDescription>
+                     <Description>PSCA (Prostate stem cell antigen)</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>84.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>Sequenzier</Code>
+                     <ShortDescription>Sequenzierungspanel</ShortDescription>
+                     <Description>Sequenzierungspanel</Description>
+                     <Position>97.0</Position>
+                  </Entry>
+                  <Entry>
+                     <Code>MSI-H</Code>
+                     <ShortDescription>MSI-H</ShortDescription>
+                     <Description>MSI-H</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>68.0</Position>
+                     <ParentCode>MSI</ParentCode>
+                  </Entry>
+                  <Entry>
+                     <Code>BCL-2</Code>
+                     <ShortDescription>BCL-2</ShortDescription>
+                     <Description>BCL-2</Description>
+                     <Synonyms></Synonyms>
+                     <Note></Note>
+                     <Position>6.0</Position>
+                     <ParentCode>BCL</ParentCode>
+                  </Entry>
+               </Entries>
+               <Categories/>
+            </Version>
+         </Versions>
+         <Ordner>
+            <Bibliothek>
+               <Name>SYSTEM Bibliothek</Name>
+            </Bibliothek>
+            <Name>STUDYSTAR</Name>
+            <Typ>1</Typ>
+         </Ordner>
+      </PropertyCatalogue>
+   </Editor>
+</OnkostarEditor>
