@@ -10,101 +10,112 @@ def build_string_from_treelist(treelist, result, indentation="", group=None):
         build_string_from_treelist(treelist, result, "    " + indentation, treelist_item[1])
 
 
-def generate_textfile_hierarchy(df):
+def generate_textfile_hierarchy(spec_entries, filename):
     values = []
-    for row in df.iter_rows(2, df.max_row):
-        name = row[0].value
-        symbol = row[1].value
-        symbol_is_hgnc = row[2].value == 'ja'
-        in_group = row[4].value
-
-        text = name + (" [" + symbol + "]" if symbol_is_hgnc else "")
-        values.append((text, symbol, in_group))
+    for spec_entry in spec_entries:
+        synonyms = ", ".join(sorted(spec_entry["Synonyms"]))
+        text = spec_entry["DisplayName"]
+        additional_info = (spec_entry["Code"] if spec_entry["IsHGNC"] else "na") +\
+            (" / " + synonyms if synonyms != "" else "")
+        if additional_info != "na":
+            text += " [" + additional_info + "]"
+        values.append((text, spec_entry["Code"], spec_entry["InGroup"]))
     values.sort(key=(lambda x: x[0].lower()))
 
     result = []
     build_string_from_treelist(values, result)
 
-    with open('visualization.txt', 'w') as cFile:
+    with open(filename, 'w', encoding="utf-8") as cFile:
         cFile.write("\n".join(result))
 
 
-def generate_xml_studystar(df, genelist):
+def generate_xml_studystar(spec_entries, filename):
     # build import file for studystar
     # use an onkostar export xml as shell for entries
     with open('osexport.osc', 'r') as cFile:
         tree = ET.parse(cFile)
 
-    e = tree.findall('.//Versions/Version/Entries')
-    for item in e:
-        entries = item.findall('Entry')
+    entries = tree.findall('.//Versions/Version/Entries')
+    for entry in entries:
+        items = entry.findall('Entry')
+        for item in items:
+            entry.remove(item)
+
+    for spec_entry in spec_entries:
         for entry in entries:
-            item.remove(entry)
-
-    for row in df.iter_rows(2, df.max_row):
-        description = row[0].value
-        code = row[1].value
-        code_is_hgnc = row[2].value == 'ja'
-        custom_synonyms = row[3].value
-        parent_group = row[4].value
-        comment = row[7].value
-
-        for entries in e:
-            # find synonyms in hgnc-code and hgnc aliases
-            synonyms_list = []
-            if row[3].value is not None:
-                synonyms_list = custom_synonyms.split(",")
-            if code_is_hgnc:
-                synonyms_list.append(code)
-                hgnc_synonyms = (list(value.get("alias_symbol", []) for value in genelist if value["symbol"] == code))
-                if len(hgnc_synonyms) > 0:
-                    synonyms_list.extend(hgnc_synonyms[0])
-            synonyms = ""
-            if len(synonyms_list) > 0:
-                # convert to set to remove duplicates
-                synonyms = ",".join(sorted(set(synonyms_list), key=lambda x: x.lower()))
             # add new node
-            entry = ET.SubElement(entries, "Entry")
-            ET.SubElement(entry, "Code").text = code
-            ET.SubElement(entry, "ShortDescription").text = description
-            ET.SubElement(entry, "Description").text = description
-            ET.SubElement(entry, "Synonyms").text = synonyms
-            ET.SubElement(entry, "Note").text = comment
-            ET.SubElement(entry, "Position").text = ""
-            ET.SubElement(entry, "ParentCode").text = parent_group
-
+            items = ET.SubElement(entry, "Entry")
+            ET.SubElement(items, "Code").text = spec_entry["Code"]
+            ET.SubElement(items, "ShortDescription").text = spec_entry["DisplayName"]
+            ET.SubElement(items, "Description").text = spec_entry["DisplayName"]
+            ET.SubElement(items, "Synonyms").text = ",".join(spec_entry["Synonyms"])
+            ET.SubElement(items, "Note").text = spec_entry["Comment"]
+            ET.SubElement(items, "Position").text = ""
+            ET.SubElement(items, "ParentCode").text = spec_entry["InGroup"]
     ET.indent(tree, space="   ", level=0)
-    with open('import_file_molMarker_Studystar.osc', 'wb') as cFile:
+    with open(filename, 'wb') as cFile:
         tree.write(cFile)
 
 
-def generate_xlsx_gravity(df):
+def generate_xlsx_gravity(spec_entries, filename):
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.append(
         ["eingang", "eingangDesc", "ausgang", "ausgangDesc", "bemerkung", "systeme", "markieren", "markierungshinweis"]
     )
-    for row in df.iter_rows(2, df.max_row):
-        name = row[0].value
-        code = row[1].value
-        rowdata = [name, "", code, "", "", "", "0", ""]
+    for spec_entry in spec_entries:
+        rowdata = [spec_entry["DisplayName"], "", spec_entry["Code"], "", "", "", "0", ""]
         ws.append(rowdata)
-    wb.save('gravity.xlsx')
+    wb.save(filename)
+
+
+def get_spec_from_worksheet(worksheet):
+    entries = []
+    for row in worksheet.iter_rows(2, worksheet.max_row):
+        synonyms = set()
+        if row[3].value:
+            synonyms.update({item.strip() for item in row[3].value.split(",")})
+        entry = {
+            "DisplayName": row[0].value,
+            "Code": row[1].value,
+            "IsHGNC": row[2].value == "ja",
+            "Synonyms": synonyms,
+            "InGroup": row[4].value,
+            "Comment": row[7].value
+        }
+        entries.append(entry)
+    return entries
+
+
+def add_synonyms_from_hgnc(spec_entries, hgnc_filename):
+    """
+    adds synonyms from a hgnc json dataset to entries
+
+    :param spec_entries: the list of entries the synonyms are added to
+    :param hgnc_filename: filename of the json file
+    """
+    # get data from hgnc json
+    with open(hgnc_filename, 'r', encoding="UTF8") as file:
+        hgnc = json.load(file)
+    gene_list = hgnc["response"]["docs"]
+
+    for spec_entry in spec_entries:
+        if spec_entry["IsHGNC"]:
+            aliases = [value.get("alias_symbol", []) for value in gene_list if value["symbol"] == spec_entry["Code"]]
+            for alias in aliases:
+                spec_entry["Synonyms"].update(alias)
 
 
 def main():
     # get data from Excel file
     workbook = openpyxl.load_workbook("MolMarker_Kategorisiert.xlsx")
     worksheet = workbook.active
+    spec_entries = get_spec_from_worksheet(worksheet)
+    add_synonyms_from_hgnc(spec_entries, "hgnc_complete_set.json")
 
-    # get data from hgnc json
-    with open('hgnc_complete_set.json', 'r', encoding="UTF8") as file:
-        hgnc = json.load(file)
-    genelist = hgnc["response"]["docs"]
-
-    generate_textfile_hierarchy(worksheet)
-    generate_xml_studystar(worksheet, genelist)
-    generate_xlsx_gravity(worksheet)
+    generate_textfile_hierarchy(spec_entries, 'visualization.txt')
+    generate_xml_studystar(spec_entries, 'import_file_molMarker_Studystar.osc')
+    generate_xlsx_gravity(spec_entries, 'gravity.xlsx')
 
 
 if __name__ == "__main__":
