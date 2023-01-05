@@ -50,7 +50,7 @@ def generate_csv_secutrial(spec_entries, filename):
         current_column = item[0]
 
     with open(filename, 'w', encoding="utf-8", newline="") as cFile:
-        csv_writer = csv.writer(cFile)
+        csv_writer = csv.writer(cFile, delimiter=";")
         csv_writer.writerow(["Ebene " + str(value + 1) for value in range(0, max_hierarchy_level + 1)])
         csv_writer.writerow(["Ebene " + str(value + 1) + ": Spalte 1" for value in range(0, max_hierarchy_level + 1)])
         for row in hierarchy:
