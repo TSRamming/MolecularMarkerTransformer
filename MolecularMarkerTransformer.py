@@ -1,13 +1,15 @@
 import xml.etree.ElementTree as ET
 import openpyxl
 import json
+import csv
+from functools import reduce
 
 
-def build_string_from_treelist(treelist, result, indentation="", group=None):
+def build_hierarchy_from_treelist(treelist, result, indentation=0, group=None):
     filtered_treelist = (value for value in treelist if value[2] == group)
     for treelist_item in filtered_treelist:
-        result.append(indentation + treelist_item[0])
-        build_string_from_treelist(treelist, result, "    " + indentation, treelist_item[1])
+        result.append([indentation, treelist_item[0]])
+        build_hierarchy_from_treelist(treelist, result, indentation+1, treelist_item[1])
 
 
 def generate_textfile_hierarchy(spec_entries, filename):
@@ -23,10 +25,36 @@ def generate_textfile_hierarchy(spec_entries, filename):
     values.sort(key=(lambda x: x[0].lower()))
 
     result = []
-    build_string_from_treelist(values, result)
-
+    build_hierarchy_from_treelist(values, result)
     with open(filename, 'w', encoding="utf-8") as cFile:
-        cFile.write("\n".join(result))
+        cFile.write("\n".join([item[0] * "    " + item[1] for item in result]))
+
+
+def generate_csv_secutrial(spec_entries, filename):
+    values = []
+    for spec_entry in spec_entries:
+        text = spec_entry["DisplayName"]
+        values.append((text, spec_entry["Code"], spec_entry["InGroup"]))
+    values.sort(key=(lambda x: x[0].lower()))
+
+    result = []
+    build_hierarchy_from_treelist(values, result)
+    max_hierarchy_level = reduce((lambda x, y: [max(x[0], y[0]), ""]), result)[0]
+    hierarchy = []
+    current_column = 1000000
+    for item in result:
+        if item[0] <= current_column:
+            hierarchy.append([item[1] if item[0] == column else "" for column in range(0, max_hierarchy_level + 1)])
+        else:
+            hierarchy[len(hierarchy) - 1][item[0]] = item[1]
+        current_column = item[0]
+
+    with open(filename, 'w', encoding="utf-8", newline="") as cFile:
+        csv_writer = csv.writer(cFile)
+        csv_writer.writerow(["Ebene " + str(value + 1) for value in range(0, max_hierarchy_level + 1)])
+        csv_writer.writerow(["Ebene " + str(value + 1) + ": Spalte 1" for value in range(0, max_hierarchy_level + 1)])
+        for row in hierarchy:
+            csv_writer.writerow(row)
 
 
 def generate_xml_studystar(spec_entries, filename):
@@ -116,6 +144,7 @@ def main():
     generate_textfile_hierarchy(spec_entries, 'visualization.txt')
     generate_xml_studystar(spec_entries, 'import_file_molMarker_Studystar.osc')
     generate_xlsx_gravity(spec_entries, 'gravity.xlsx')
+    generate_csv_secutrial(spec_entries, 'secutrial_catalogue.csv')
 
 
 if __name__ == "__main__":
