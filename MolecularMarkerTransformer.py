@@ -3,6 +3,7 @@ import openpyxl
 import json
 import csv
 from functools import reduce
+from pathlib import Path
 
 
 def build_hierarchy_from_treelist(treelist, result, indentation=0, group=None):
@@ -57,10 +58,10 @@ def generate_csv_secutrial(spec_entries, filename):
             csv_writer.writerow(row)
 
 
-def generate_xml_studystar(spec_entries, filename):
+def generate_xml_studystar(spec_entries, source_filename, target_filename):
     # build import file for studystar
     # use an onkostar export xml as shell for entries
-    with open('osexport.osc', 'r') as cFile:
+    with open(source_filename, 'r') as cFile:
         tree = ET.parse(cFile)
 
     entries = tree.findall('.//Versions/Version/Entries')
@@ -81,7 +82,7 @@ def generate_xml_studystar(spec_entries, filename):
             ET.SubElement(items, "Position").text = ""
             ET.SubElement(items, "ParentCode").text = spec_entry["InGroup"]
     ET.indent(tree, space="   ", level=0)
-    with open(filename, 'wb') as cFile:
+    with open(target_filename, 'wb') as cFile:
         tree.write(cFile)
 
 
@@ -135,16 +136,27 @@ def add_synonyms_from_hgnc(spec_entries, hgnc_filename):
 
 
 def main():
+    source_folder = "sources"
+    source_excel = "MolMarker_Kategorisiert.xlsx"
+    hgnc_export = "hgnc_complete_set.json"
+    studystar_import_template = "mk_export.osc"
+
+    result_folder = "generated_files"
+    hierarchy_visualisation = "visualization.txt"
+    studystar_import = "import_file_molMarker_Studystar.osc"
+    gravity_import = "gravity.xlsx"
+    secutrial_catalogue_import = "secutrial_catalogue.csv"
+
     # get data from Excel file
-    workbook = openpyxl.load_workbook("MolMarker_Kategorisiert.xlsx")
+    workbook = openpyxl.load_workbook(Path(source_folder, source_excel))
     worksheet = workbook.active
     spec_entries = get_spec_from_worksheet(worksheet)
-    add_synonyms_from_hgnc(spec_entries, "hgnc_complete_set.json")
+    add_synonyms_from_hgnc(spec_entries, Path(source_folder, hgnc_export))
 
-    generate_textfile_hierarchy(spec_entries, 'visualization.txt')
-    generate_xml_studystar(spec_entries, 'import_file_molMarker_Studystar.osc')
-    generate_xlsx_gravity(spec_entries, 'gravity.xlsx')
-    generate_csv_secutrial(spec_entries, 'secutrial_catalogue.csv')
+    generate_textfile_hierarchy(spec_entries, Path(result_folder, hierarchy_visualisation))
+    generate_xml_studystar(spec_entries, Path(source_folder, studystar_import_template), Path(result_folder, studystar_import))
+    generate_xlsx_gravity(spec_entries, Path(result_folder, gravity_import))
+    generate_csv_secutrial(spec_entries, Path(result_folder, secutrial_catalogue_import))
 
 
 if __name__ == "__main__":
