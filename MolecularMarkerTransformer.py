@@ -63,24 +63,21 @@ def generate_xml_studystar(spec_entries, source_filename, target_filename):
     # use an onkostar export xml as shell for entries
     with open(source_filename, 'r') as cFile:
         tree = ET.parse(cFile)
+    root = tree.getroot()
 
-    entries = tree.findall('.//Versions/Version/Entries')
-    for entry in entries:
-        items = entry.findall('Entry')
-        for item in items:
-            entry.remove(item)
-
+    # remove everything below entries and add own entry items
+    entries = tree.find('.//Versions/Version/Entries')
+    entries.clear()
     for spec_entry in spec_entries:
-        for entry in entries:
-            # add new node
-            items = ET.SubElement(entry, "Entry")
-            ET.SubElement(items, "Code").text = spec_entry["Code"]
-            ET.SubElement(items, "ShortDescription").text = spec_entry["DisplayName"]
-            ET.SubElement(items, "Description").text = spec_entry["DisplayName"]
-            ET.SubElement(items, "Synonyms").text = ",".join(spec_entry["Synonyms"])
-            ET.SubElement(items, "Note").text = spec_entry["Comment"]
-            ET.SubElement(items, "Position").text = ""
-            ET.SubElement(items, "ParentCode").text = spec_entry["InGroup"]
+        # add new node
+        items = ET.SubElement(entries, "Entry")
+        ET.SubElement(items, "Code").text = spec_entry["Code"]
+        ET.SubElement(items, "ShortDescription").text = spec_entry["DisplayName"]
+        ET.SubElement(items, "Description").text = spec_entry["DisplayName"]
+        ET.SubElement(items, "Synonyms").text = ",".join(sorted(spec_entry["Synonyms"]))
+        ET.SubElement(items, "Note").text = spec_entry["Comment"]
+        ET.SubElement(items, "Position").text = ""
+        ET.SubElement(items, "ParentCode").text = spec_entry["InGroup"]
     ET.indent(tree, space="   ", level=0)
     with open(target_filename, 'wb') as cFile:
         tree.write(cFile)
