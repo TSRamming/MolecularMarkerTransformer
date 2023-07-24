@@ -1,4 +1,3 @@
-import xml.etree.ElementTree as ET
 import openpyxl
 import json
 import csv
@@ -58,29 +57,43 @@ def generate_csv_secutrial(spec_entries, filename):
             csv_writer.writerow(row)
 
 
-def generate_xml_studystar(spec_entries, source_filename, target_filename):
+def generate_csv_studystar(spec_entries, target_filename):
     # build import file for studystar
     # use an onkostar export xml as shell for entries
-    with open(source_filename, 'r') as cFile:
-        tree = ET.parse(cFile)
-    root = tree.getroot()
-
-    # remove everything below entries and add own entry items
-    entries = tree.find('.//Versions/Version/Entries')
-    entries.clear()
+    values = []
     for spec_entry in spec_entries:
-        # add new node
-        items = ET.SubElement(entries, "Entry")
-        ET.SubElement(items, "Code").text = spec_entry["Code"]
-        ET.SubElement(items, "ShortDescription").text = spec_entry["DisplayName"]
-        ET.SubElement(items, "Description").text = spec_entry["DisplayName"]
-        ET.SubElement(items, "Synonyms").text = ",".join(sorted(spec_entry["Synonyms"]))
-        ET.SubElement(items, "Note").text = spec_entry["Comment"]
-        ET.SubElement(items, "Position").text = ""
-        ET.SubElement(items, "ParentCode").text = spec_entry["InGroup"]
-    ET.indent(tree, space="   ", level=0)
-    with open(target_filename, 'wb') as cFile:
-        tree.write(cFile)
+        entry_for_group = get_entry_for_code(spec_entries, spec_entry["InGroup"])
+        assigned_group = ""
+        if entry_for_group is not None:
+            assigned_group = entry_for_group["DisplayName"]
+        values.append(
+            (
+                spec_entry["Code"],
+                spec_entry["DisplayName"],
+                spec_entry["DisplayName"],
+                ",".join(sorted(spec_entry["Synonyms"])),
+                "",
+                assigned_group
+            )
+        )
+    with open(target_filename, 'w', encoding="utf-8", newline="") as cFile:
+        csv_writer = csv.writer(cFile, delimiter=";")
+        for row in values:
+            print(row)
+            csv_writer.writerow(row)
+
+
+def get_entry_for_code(spec_entries, code):
+    """
+    searches the entry matching the given code
+    :param spec_entries: list of entries
+    :param code: code of the entry you want returned
+    :return: found entry or None
+    """
+    for spec_entry in spec_entries:
+        if code == spec_entry['Code']:
+            return spec_entry
+    return None
 
 
 def generate_xlsx_gravity(spec_entries, filename):
@@ -136,11 +149,10 @@ def main():
     source_folder = "sources"
     source_excel = "MolMarker_Kategorisiert.xlsx"
     hgnc_export = "hgnc_complete_set.json"
-    studystar_import_template = "mk_export.osc"
 
     result_folder = "generated_files"
     hierarchy_visualisation = "visualization.txt"
-    studystar_import = "import_file_molMarker_Studystar.osc"
+    studystar_import = "import_file_molMarker_Studystar.csv"
     gravity_import = "gravity.xlsx"
     secutrial_catalogue_import = "secutrial_catalogue.csv"
 
@@ -151,7 +163,7 @@ def main():
     add_synonyms_from_hgnc(spec_entries, Path(source_folder, hgnc_export))
 
     generate_textfile_hierarchy(spec_entries, Path(result_folder, hierarchy_visualisation))
-    generate_xml_studystar(spec_entries, Path(source_folder, studystar_import_template), Path(result_folder, studystar_import))
+    generate_csv_studystar(spec_entries, Path(result_folder, studystar_import))
     generate_xlsx_gravity(spec_entries, Path(result_folder, gravity_import))
     generate_csv_secutrial(spec_entries, Path(result_folder, secutrial_catalogue_import))
 
