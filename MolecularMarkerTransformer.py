@@ -103,7 +103,7 @@ def generate_xlsx_gravity(spec_entries, filename):
         ["eingang", "eingangDesc", "ausgang", "ausgangDesc", "bemerkung", "systeme", "markieren", "markierungshinweis"]
     )
     for spec_entry in spec_entries:
-        rowdata = [spec_entry["DisplayName"], "", spec_entry["Code"], "", "", "", "0", ""]
+        rowdata = [spec_entry["Code"], "", spec_entry["Code"], "", spec_entry["DisplayName"], "", "0", ""]
         ws.append(rowdata)
     wb.save(filename)
 
