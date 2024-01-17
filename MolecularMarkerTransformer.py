@@ -33,27 +33,19 @@ def generate_textfile_hierarchy(spec_entries, filename):
 def generate_csv_secutrial(spec_entries, filename):
     values = []
     for spec_entry in spec_entries:
-        text = spec_entry["DisplayName"]
-        values.append((text, spec_entry["Code"], spec_entry["InGroup"]))
+        if not isinstance(spec_entry["OtherCategory"], str) or spec_entry["OtherCategory"].strip() != "Gruppe":
+            symbol = spec_entry["Code"]
+            description = spec_entry["DisplayName"]
+            if len(spec_entry["Synonyms"]) > 0:
+                description = description + " (" + ", ".join(spec_entry["Synonyms"]) + ")"
+            values.append((symbol, description))
     values.sort(key=(lambda x: x[0].lower()))
-
-    result = []
-    build_hierarchy_from_treelist(values, result)
-    max_hierarchy_level = reduce((lambda x, y: [max(x[0], y[0]), ""]), result)[0]
-    hierarchy = []
-    current_column = 1000000
-    for item in result:
-        if item[0] <= current_column:
-            hierarchy.append([item[1] if item[0] == column else "" for column in range(0, max_hierarchy_level + 1)])
-        else:
-            hierarchy[len(hierarchy) - 1][item[0]] = item[1]
-        current_column = item[0]
 
     with open(filename, 'w', encoding="utf-8", newline="") as cFile:
         csv_writer = csv.writer(cFile, delimiter=";")
-        csv_writer.writerow(["Ebene " + str(value + 1) for value in range(0, max_hierarchy_level + 1)])
-        csv_writer.writerow(["Ebene " + str(value + 1) + ": Spalte 1" for value in range(0, max_hierarchy_level + 1)])
-        for row in hierarchy:
+        csv_writer.writerow(["Ebene 1", "Ebene 1"])
+        csv_writer.writerow(["Ebene 1: Spalte 1", "Ebene 1: Spalte 2"])
+        for row in values:
             csv_writer.writerow(row)
 
 
@@ -120,7 +112,8 @@ def get_spec_from_worksheet(worksheet):
             "IsHGNC": row[2].value == "ja",
             "Synonyms": synonyms,
             "InGroup": row[4].value,
-            "Comment": row[7].value
+            "Comment": row[7].value,
+            "OtherCategory": row[5].value
         }
         entries.append(entry)
     return entries
