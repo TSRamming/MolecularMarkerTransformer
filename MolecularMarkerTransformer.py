@@ -1,7 +1,6 @@
 import openpyxl
 import json
 import csv
-from functools import reduce
 from pathlib import Path
 
 
@@ -37,13 +36,13 @@ def generate_csv_secutrial(spec_entries, filename):
             symbol = spec_entry["Code"]
             description = spec_entry["DisplayName"]
             if len(spec_entry["Synonyms"]) > 0:
-                description = description + " (" + ", ".join(spec_entry["Synonyms"]) + ")"
+                description = description + " (" + ", ".join(sorted(spec_entry["Synonyms"], key=str.lower)) + ")"
             values.append((symbol, description))
     values.sort(key=(lambda x: x[0].lower()))
 
     with open(filename, 'w', encoding="utf-8", newline="") as cFile:
         csv_writer = csv.writer(cFile, delimiter=";")
-        csv_writer.writerow(["Ebene 1", "Ebene 1"])
+        csv_writer.writerow(["Ebene 1", ""])
         csv_writer.writerow(["Ebene 1: Spalte 1", "Ebene 1: Spalte 2"])
         for row in values:
             csv_writer.writerow(row)
@@ -57,7 +56,7 @@ def generate_csv_studystar(spec_entries, target_filename):
         entry_for_group = get_entry_for_code(spec_entries, spec_entry["InGroup"])
         assigned_group = ""
         if entry_for_group is not None:
-            assigned_group = entry_for_group["DisplayName"]
+            assigned_group = entry_for_group["Code"]
         values.append(
             (
                 spec_entry["Code"],
@@ -92,10 +91,11 @@ def generate_xlsx_gravity(spec_entries, filename):
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.append(
-        ["eingang", "eingangDesc", "ausgang", "ausgangDesc", "bemerkung", "systeme", "markieren", "markierungshinweis"]
+        ["eingang", "eingangDesc", "ausgang", "ausgangDesc", "bemerkung", "entwurf", "anzahl", "systeme", "markieren",
+         "markierungshinweis"]
     )
     for spec_entry in spec_entries:
-        rowdata = [spec_entry["Code"], "", spec_entry["Code"], "", spec_entry["DisplayName"], "", "0", ""]
+        rowdata = [spec_entry["Code"], "", spec_entry["Code"], "", spec_entry["DisplayName"], "0", "", "", "0", ""]
         ws.append(rowdata)
     wb.save(filename)
 
@@ -105,7 +105,7 @@ def get_spec_from_worksheet(worksheet):
     for row in worksheet.iter_rows(2, worksheet.max_row):
         synonyms = set()
         if row[3].value:
-            synonyms.update({item.strip() for item in row[3].value.split(",")})
+            synonyms.update({item.strip() for item in row[3].value.split("|")})
         entry = {
             "DisplayName": row[0].value,
             "Code": row[1].value,
